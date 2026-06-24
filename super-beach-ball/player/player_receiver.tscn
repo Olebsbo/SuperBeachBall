@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://uaok20q2khpv"]
+
+[ext_resource type="Script" uid="uid://bsqo170wnrqjk" path="res://player/player_receiver.gd" id="1_gxj2y"]
+[ext_resource type="Texture2D" uid="uid://d3gsplkjv04bi" path="res://Sprites/PlayerFemale.png" id="2_316uc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gxj2y"]
+size = Vector3(0.55133057, 1.523468, 0.13427734)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_316uc"]
+radius = 0.7512675
+
+[sub_resource type="Animation" id="Animation_316uc"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ug678"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_kbnlb"]
+resource_name = "Ready"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_l5qc6"]
+resource_name = "ReceiveBack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_c02ih"]
+resource_name = "ReceiveFront"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_0cdk4"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0cdk4"]
+_data = {
+&"Idle": SubResource("Animation_316uc"),
+&"RESET": SubResource("Animation_ug678"),
+&"Ready": SubResource("Animation_kbnlb"),
+&"ReceiveBack": SubResource("Animation_l5qc6"),
+&"ReceiveFront": SubResource("Animation_c02ih"),
+&"Run": SubResource("Animation_0cdk4")
+}
+
+[node name="PlayerReceiver" type="CharacterBody3D" unique_id=2110034631]
+script = ExtResource("1_gxj2y")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=820565964]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_316uc")
+hframes = 10
+frame = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=711202959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, -0.1, 0)
+shape = SubResource("BoxShape3D_gxj2y")
+
+[node name="ReceiveArea" type="Area3D" parent="." unique_id=119678251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45852748, 0.34174347, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiveArea" unique_id=1149489322]
+shape = SubResource("SphereShape3D_316uc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=255697799]
+libraries/ = SubResource("AnimationLibrary_0cdk4")
+
+[node name="ReceivingTimer" type="Timer" parent="." unique_id=553598480]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="ReceivingTimer" to="." method="_on_receiving_timer_timeout"]

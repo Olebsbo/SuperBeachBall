@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://d3nxoiql3yavg"]
+
+[ext_resource type="Script" uid="uid://f5amjjldh0k3" path="res://player/enemy_spiker.gd" id="1_xqp2o"]
+[ext_resource type="Texture2D" uid="uid://prhyqyvs0ha6" path="res://Sprites/PlayerMaleEnemy.png" id="2_xqp2o"]
+[ext_resource type="PackedScene" uid="uid://dtrpxoanpviu2" path="res://SubNodes/receive_pause.tscn" id="3_848g8"]
+[ext_resource type="PackedScene" uid="uid://dka4lb7k8xt4r" path="res://SubNodes/spike_pause.tscn" id="4_5yr6n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5yr6n"]
+radius = 0.96507514
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqp2o"]
+size = Vector3(0.55133057, 1.523468, 0.13427734)
+
+[sub_resource type="Animation" id="Animation_xynbj"]
+resource_name = "Fall"
+loop_mode = 1
+step = 0.1333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_848g8"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lv7ks"]
+resource_name = "Jump"
+length = 0.2
+step = 0.1333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_5yr6n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_10vsq"]
+resource_name = "Run"
+length = 0.75
+loop_mode = 1
+step = 0.1333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_0lkhu"]
+resource_name = "Spike"
+step = 0.1333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+
+[sub_resource type="Animation" id="Animation_sj8xr"]
+resource_name = "SpikeFinish"
+step = 0.1333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yr6n"]
+_data = {
+&"Fall": SubResource("Animation_xynbj"),
+&"Idle": SubResource("Animation_848g8"),
+&"Jump": SubResource("Animation_lv7ks"),
+&"RESET": SubResource("Animation_5yr6n"),
+&"Run": SubResource("Animation_10vsq"),
+&"Spike": SubResource("Animation_0lkhu"),
+&"SpikeFinish": SubResource("Animation_sj8xr")
+}
+
+[node name="EnemySpiker" type="CharacterBody3D" unique_id=922321233]
+collision_mask = 4
+script = ExtResource("1_xqp2o")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=600498913]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("2_xqp2o")
+hframes = 13
+frame = 1
+
+[node name="SpikeArea" type="Area3D" parent="." unique_id=2001888452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583, 0.343, 0)
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpikeArea" unique_id=628287247]
+shape = SubResource("SphereShape3D_5yr6n")
+disabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2135569460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, -0.1, 0)
+shape = SubResource("BoxShape3D_xqp2o")
+
+[node name="ReceivePause" parent="." unique_id=1641524941 node_paths=PackedStringArray("paused_node") instance=ExtResource("3_848g8")]
+paused_node = NodePath("..")
+
+[node name="SpikePause" parent="." unique_id=1641464032 node_paths=PackedStringArray("paused_node") instance=ExtResource("4_5yr6n")]
+paused_node = NodePath("..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2120542235]
+libraries/ = SubResource("AnimationLibrary_5yr6n")
+
+[node name="SpikeFinishTimer" type="Timer" parent="." unique_id=1274481055]
+wait_time = 1.4
+one_shot = true
+
+[connection signal="timeout" from="SpikeFinishTimer" to="." method="_on_spike_finish_timer_timeout"]

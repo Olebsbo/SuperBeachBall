@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c8m44oj1omhx0"]
+
+[ext_resource type="Script" uid="uid://blt0xvtyhwo4m" path="res://objects/ball.gd" id="1_n16w4"]
+[ext_resource type="Texture2D" uid="uid://bjd4giax214um" path="res://Sprites/Ball.png" id="2_n16w4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x8fbi"]
+radius = 0.73800564
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n16w4"]
+radius = 0.8963957
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3d6a7"]
+radius = 0.98531747
+
+[node name="Ball" type="CharacterBody3D" unique_id=277076019]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_n16w4")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1321720876]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("2_n16w4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1415213724]
+shape = SubResource("SphereShape3D_x8fbi")
+
+[node name="ReceiveDetector" type="Area3D" parent="." unique_id=1927110141]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiveDetector" unique_id=805202432]
+shape = SubResource("SphereShape3D_n16w4")
+
+[node name="EnemyReceiveDetector" type="Area3D" parent="." unique_id=2066945434]
+visible = false
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyReceiveDetector" unique_id=1242473210]
+shape = SubResource("SphereShape3D_n16w4")
+
+[node name="SpikeDetector" type="Area3D" parent="." unique_id=1613173635]
+visible = false
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpikeDetector" unique_id=1311698078]
+shape = SubResource("SphereShape3D_3d6a7")
+
+[node name="EnemySpikeDetector" type="Area3D" parent="." unique_id=1136786114]
+visible = false
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemySpikeDetector" unique_id=1548060373]
+shape = SubResource("SphereShape3D_3d6a7")
+
+[node name="LandingZone" type="RayCast3D" parent="." unique_id=1436730667]
+collision_mask = 4
+
+[node name="ReceivePauseTimer" type="Timer" parent="." unique_id=376129412]
+wait_time = 0.5
+one_shot = true
+
+[node name="SpikePauseTimer" type="Timer" parent="." unique_id=1252677569]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="ReceivePauseTimer" to="." method="_on_receive_pause_timer_timeout"]
+[connection signal="timeout" from="SpikePauseTimer" to="." method="_on_spike_pause_timer_timeout"]

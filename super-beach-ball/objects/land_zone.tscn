@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b7n6q4wukyqao"]
+
+[ext_resource type="Texture2D" uid="uid://cpsqxhbw3fepi" path="res://Sprites/LandingZone.png" id="1_3xgrb"]
+[ext_resource type="Script" uid="uid://cggs6nw3ypqbq" path="res://objects/land_zone.gd" id="2_vv0ew"]
+
+[node name="LandZone" type="Sprite3D" unique_id=1197307920]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_3xgrb")
+script = ExtResource("2_vv0ew")
+
+[node name="Timer" type="Timer" parent="." unique_id=565326221]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
