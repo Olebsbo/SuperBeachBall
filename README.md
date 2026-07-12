@@ -3,6 +3,9 @@ A video game where you play beach volleyball with an AI (not generative) or loca
 If you'd like to play the actual game, then you can play it here: https://olebsbo.itch.io/super-beach-ball
 The files in this repository are all the actual code and assets that can be editted in Godot 4. Enjoy!
 
+<img width="1267" height="418" alt="Screenshot 2026-07-11 205018" src="https://github.com/user-attachments/assets/ab1c0b3f-38b4-4551-856e-5175fef12eb4" />
+
+
 Controls:
 A and D to move the players, left and right arrow keys in local PVP to move the opposing team's players.
 W to receive when controlling the receiver, jump and spike when controlling the spiker
