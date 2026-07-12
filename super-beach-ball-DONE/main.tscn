@@ -1,0 +1,1413 @@
+[gd_scene format=3 uid="uid://m0su0gb50q4j"]
+
+[ext_resource type="PackedScene" uid="uid://d3nxoiql3yavg" path="res://player/enemy_spiker.tscn" id="1_272bh"]
+[ext_resource type="Script" uid="uid://sw537mcyo4e3" path="res://main.gd" id="1_efxa6"]
+[ext_resource type="PackedScene" uid="uid://uaok20q2khpv" path="res://player/player_receiver.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c8m44oj1omhx0" path="res://objects/ball.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b7n6q4wukyqao" path="res://objects/land_zone.tscn" id="3_lquwl"]
+[ext_resource type="FontFile" uid="uid://doeofbyuq0bum" path="res://Font/Russo_One.ttf" id="3_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://c0vop36b1spbu" path="res://player/player_spiker.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dwjegs1g7f1b" path="res://Sprites/EnemyWin.png" id="4_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://1j67lxvb4h8m" path="res://Sprites/PlayerWin.png" id="4_vivmo"]
+[ext_resource type="PackedScene" uid="uid://dj2rplg17oxr8" path="res://Menu/in_game_menu.tscn" id="4_w48qg"]
+[ext_resource type="PackedScene" uid="uid://bk7er7b2ll7t1" path="res://camera.tscn" id="5_kek77"]
+[ext_resource type="PackedScene" uid="uid://c00wqr7g62s0b" path="res://player/enemy_receiver.tscn" id="6_7mycd"]
+[ext_resource type="Shader" uid="uid://dhywo8xt14gsb" path="res://Effect/EffectsLine.gdshader" id="6_82xsv"]
+[ext_resource type="Texture2D" uid="uid://ckvj6ityk8a8l" path="res://Sprites/EnemyLose.png" id="7_getpj"]
+[ext_resource type="PackedScene" uid="uid://brvvsa4jvxqcm" path="res://objects/net.tscn" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://ddoport16wcqm" path="res://Sprites/PlayerLose.png" id="8_ryguw"]
+[ext_resource type="Shader" uid="uid://c53btx2uqf5p0" path="res://shaders/sky.gdshader" id="11_efxa6"]
+[ext_resource type="Shader" uid="uid://b475h8wghdae4" path="res://shaders/diamondTransition.gdshader" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dp4g7nv020v2e" path="res://Sprites/ArenaBarrier.png" id="15_yaehf"]
+[ext_resource type="Texture2D" uid="uid://vg02ed31lq0g" path="res://Sprites/ArenaBarrierWall.png" id="20_getpj"]
+[ext_resource type="Texture2D" uid="uid://dtfmgpkpe3pxp" path="res://Sprites/Leaf.png" id="21_getpj"]
+[ext_resource type="Texture2D" uid="uid://b8c4hurkixnkx" path="res://Sprites/PalmTree.png" id="21_ryguw"]
+[ext_resource type="Texture2D" uid="uid://sd8t8w5ggywl" path="res://Sprites/PalmTreeMiddle.png" id="22_d13ii"]
+[ext_resource type="Texture2D" uid="uid://deqdnd5k011pi" path="res://Sprites/PalmTreeTall.png" id="23_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://5ck7tpcvj62g" path="res://Sprites/SandCastle.png" id="24_a6jrf"]
+[ext_resource type="Script" uid="uid://ubxpcc2x8jxr" path="res://sandcastle.gd" id="25_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://b3pvm288fvshx" path="res://Sprites/PersonUnderBeachUmbrella.png" id="25_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://m0y2ahexnslo" path="res://Sprites/PersonUnderBeachUmbrella2.png" id="26_qsp4k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("12_dg77c")
+shader_parameter/progress = 1.0
+shader_parameter/reverse = true
+shader_parameter/numberOfTiles = Vector2(16, 9)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_82xsv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_82xsv"]
+noise = SubResource("FastNoiseLite_82xsv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
+shader = ExtResource("6_82xsv")
+shader_parameter/noise = SubResource("NoiseTexture2D_82xsv")
+shader_parameter/line_color = Color(1, 0.37165672, 0.36035684, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 0.0
+shader_parameter/line_faloff = 0.0
+shader_parameter/mask_size = 1.0
+shader_parameter/mask_edge = 0.45200002147
+shader_parameter/animation_speed = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d13ii"]
+bg_color = Color(0.9643937, 0, 0.1676988, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color(1, 0.57132035, 0.56939626, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u8w0"]
+bg_color = Color(0.9643937, 0, 0.1676988, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color(1, 0.57132035, 0.56939626, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0odxb"]
+bg_color = Color(0.9643937, 0, 0.1676988, 1)
+border_width_left = 6
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color(1, 0.57132035, 0.56939626, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6jrf"]
+bg_color = Color(1, 1, 1, 0.40392157)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 0.7607843)
+corner_radius_top_left = 60
+corner_radius_bottom_right = 60
+corner_detail = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jrwy"]
+atlas = ExtResource("7_getpj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quxj8"]
+atlas = ExtResource("7_getpj")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxqd0"]
+atlas = ExtResource("8_ryguw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqefk"]
+atlas = ExtResource("8_ryguw")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xuqvo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jrwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quxj8")
+}],
+"loop": 1,
+"name": &"EnemyLose",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxqd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqefk")
+}],
+"loop": 1,
+"name": &"PlayerLose",
+"speed": 8.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuqvo"]
+shader = ExtResource("11_efxa6")
+shader_parameter/sky_top_color = Color(0.1, 0.4, 0.8, 1)
+shader_parameter/sky_horizon_color = Color(0.5, 0.8, 1, 1)
+shader_parameter/gradient_steps = 4.0
+shader_parameter/sun_color = Color(1, 0.95, 0.8, 1)
+shader_parameter/sun_size = 0.08
+
+[sub_resource type="Sky" id="Sky_xuqvo"]
+sky_material = SubResource("ShaderMaterial_xuqvo")
+
+[sub_resource type="Environment" id="Environment_qsp4k"]
+background_mode = 2
+sky = SubResource("Sky_xuqvo")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
+size = Vector3(1, 12.812897, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ube3"]
+size = Vector3(1, 11.0355835, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lquwl"]
+size = Vector3(70.57045, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryguw"]
+albedo_color = Color(1.8289685e-06, 0.6232448, 0.7305905, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kek77"]
+material = SubResource("StandardMaterial3D_ryguw")
+size = Vector2(2000, 2000)
+subdivide_width = 20
+subdivide_depth = 20
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ube3"]
+size = Vector3(83.77467, 1, 23.77118)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
+albedo_color = Color(0.52671427, 0.46139967, 0.2749275, 1)
+albedo_texture_force_srgb = true
+uv1_scale = Vector3(40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6jrf"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuqvo"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp4k"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq58d"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seu75"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htxhm"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq2sk"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k2k6"]
+atlas = ExtResource("24_a6jrf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq58d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6jrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuqvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsp4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq58d")
+}],
+"loop": 1,
+"name": &"FlagWave",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seu75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htxhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq2sk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k2k6")
+}],
+"loop": 1,
+"name": &"FlagWaveLeft",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lvgs"]
+atlas = ExtResource("25_xuqvo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hj2v"]
+atlas = ExtResource("25_xuqvo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6panp"]
+atlas = ExtResource("25_xuqvo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhwpf"]
+atlas = ExtResource("25_xuqvo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf6bu"]
+atlas = ExtResource("25_xuqvo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3or44"]
+atlas = ExtResource("25_xuqvo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nde7f"]
+atlas = ExtResource("25_xuqvo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_seu75"]
+animations = [{
+"frames": [{
+"duration": 40.0,
+"texture": SubResource("AtlasTexture_7lvgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hj2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6panp")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_rhwpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf6bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3or44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nde7f")
+}],
+"loop": 1,
+"name": &"Stretch",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnwlp"]
+atlas = ExtResource("26_qsp4k")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ace"]
+atlas = ExtResource("26_qsp4k")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhrsl"]
+atlas = ExtResource("26_qsp4k")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fephb"]
+atlas = ExtResource("26_qsp4k")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sirnn"]
+atlas = ExtResource("26_qsp4k")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dngsw"]
+atlas = ExtResource("26_qsp4k")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs8mu"]
+atlas = ExtResource("26_qsp4k")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htxhm"]
+animations = [{
+"frames": [{
+"duration": 50.0,
+"texture": SubResource("AtlasTexture_dnwlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ace")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhrsl")
+}, {
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_fephb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sirnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dngsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs8mu")
+}],
+"loop": 1,
+"name": &"Stretch",
+"speed": 4.0
+}]
+
+[sub_resource type="Animation" id="Animation_82xsv"]
+resource_name = "EnemyWinAnimation1"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/WinScreen/EnemyWinAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/WinScreen/EffectLines:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_density")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.30000001425]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.37165672, 0.36035684, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/WinScreen/EnemyWinAnimation:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.7, 0.73333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 16), Vector2(24, 24), Vector2(24, 24), Vector2(16, 16), Vector2(16, 16)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/WinScreen/LosePanel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.7333333, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-400, 709), Vector2(-400, 709), Vector2(72, 709)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/WinScreen/LosePanel/LoseAnimation:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/WinScreen/LosePanel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/WinScreen/WinButton:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.7, 0.79103404),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2400, 706), Vector2(800, 740)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/WinScreen/WinButton:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_getpj"]
+resource_name = "EnemyWinAnimation2"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/WinScreen/EnemyWinAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/WinScreen/EffectLines:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_density")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.30000001425]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.37165672, 0.36035684, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/WinScreen/EnemyWinAnimation:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.7, 0.73333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 16), Vector2(24, 24), Vector2(24, 24), Vector2(16, 16), Vector2(16, 16)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/WinScreen/LosePanel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.7333333, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 709), Vector2(-500, 709), Vector2(72, 709)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/WinScreen/LosePanel/LoseAnimation:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/WinScreen/LosePanel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/WinScreen/WinButton:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.7, 0.79103404),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2400, 706), Vector2(800, 740)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/WinScreen/WinButton:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ryguw"]
+resource_name = "PlayerWinAnimation1"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/WinScreen/PlayerWinAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/WinScreen/PlayerWinAnimation:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.7, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 16), Vector2(24, 24), Vector2(24, 24), Vector2(16, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/WinScreen/EffectLines:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_density")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.30000001425]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.03333336),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.9637346e-05, 0.88575274, 0.9526227, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/WinScreen/LosePanel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.7333333, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2000, 709), Vector2(2000, 709), Vector2(1500, 709)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/WinScreen/LosePanel/LoseAnimation:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/WinScreen/LosePanel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/WinScreen/WinButton:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/WinScreen/WinButton:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.7, 0.79103404),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-600, 706), Vector2(560, 740)]
+}
+
+[sub_resource type="Animation" id="Animation_d13ii"]
+resource_name = "PlayerWinAnimation2"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/WinScreen/PlayerWinAnimation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/WinScreen/PlayerWinAnimation:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.7, 0.73333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 16), Vector2(24, 24), Vector2(24, 24), Vector2(16, 16)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/WinScreen/EffectLines:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_density")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.30000001425]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/WinScreen/EffectLines:material:shader_parameter/line_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.9637346e-05, 0.88575274, 0.9526227, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/WinScreen/LosePanel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.7333333, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2000, 709), Vector2(2000, 709), Vector2(1500, 709)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/WinScreen/LosePanel/LoseAnimation:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/WinScreen/LosePanel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/WinScreen/WinButton:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/WinScreen/WinButton:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.7, 0.79103404),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-600, 706), Vector2(560, 740)]
+}
+
+[sub_resource type="Animation" id="Animation_ycdy4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/WinScreen/WinButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(600, 740)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/WinScreen/WinButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_w48qg"]
+resource_name = "blackout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_efxa6"]
+resource_name = "transitionIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dg77c"]
+resource_name = "transitionOut"
+length = 1.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycdy4"]
+_data = {
+&"EnemyWinAnimation1": SubResource("Animation_82xsv"),
+&"EnemyWinAnimation2": SubResource("Animation_getpj"),
+&"PlayerWinAnimation1": SubResource("Animation_ryguw"),
+&"PlayerWinAnimation2": SubResource("Animation_d13ii"),
+&"RESET": SubResource("Animation_ycdy4"),
+&"blackout": SubResource("Animation_w48qg"),
+&"transitionIn": SubResource("Animation_efxa6"),
+&"transitionOut": SubResource("Animation_dg77c")
+}
+
+[sub_resource type="Curve" id="Curve_getpj"]
+_data = [Vector2(0, 0.21348321), 0.0, 0.0, 0, 0, Vector2(0.4972376, 0.64044946), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_82xsv"]
+curve = SubResource("Curve_getpj")
+
+[sub_resource type="Curve" id="Curve_82xsv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ryguw"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -0.07865167), 0.0, 0.0, 0, 0, Vector2(0.19889504, 1), 0.0, 0.0, 0, 0, Vector2(0.5138122, -0.9325844), 0.0, 0.0, 0, 0, Vector2(0.75690615, 1), 0.0, 0.0, 0, 0, Vector2(0.9944751, -0.033707857), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_getpj"]
+curve_x = SubResource("Curve_82xsv")
+curve_y = SubResource("Curve_ryguw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ug678"]
+emission_shape_scale = Vector3(20, 5, 5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(-1, 0, 0)
+spread = 5.0
+initial_velocity_min = 4.0
+initial_velocity_max = 8.0
+directional_velocity_min = 1.0
+directional_velocity_max = 1.5
+directional_velocity_curve = SubResource("CurveXYZTexture_getpj")
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_82xsv")
+
+[sub_resource type="Curve" id="Curve_d13ii"]
+_limits = [0.0, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0.13483149), 0.0, 0.0, 0, 0, Vector2(0.25352114, 0.48876408), 0.21171133, 0.21171133, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u8w0"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_82xsv"]
+material = SubResource("StandardMaterial3D_1u8w0")
+shape = 0
+curve = SubResource("Curve_d13ii")
+
+[sub_resource type="Curve" id="Curve_1u8w0"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -0.9550563), 0.0, 0.0, 0, 0, Vector2(0.51933706, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_ryguw"]
+curve_y = SubResource("Curve_1u8w0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_82xsv"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 10, 10)
+spread = 5.0
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+angular_velocity_min = 4.999984
+angular_velocity_max = 9.999984
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_ryguw")
+gravity = Vector3(0, -2, 0)
+scale_min = 0.79999995
+scale_max = 1.1999999
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d13ii"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+albedo_texture = ExtResource("21_getpj")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ryguw"]
+material = SubResource("StandardMaterial3D_d13ii")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[node name="Main" type="Node3D" unique_id=1268475583 node_paths=PackedStringArray("ball")]
+script = ExtResource("1_efxa6")
+ball = NodePath("Ball")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1477517338]
+
+[node name="Transition" type="ColorRect" parent="CanvasLayer" unique_id=1604609408]
+material = SubResource("ShaderMaterial_dg77c")
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1922.0
+offset_bottom = 1082.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer" unique_id=1822866192]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_ycdy4")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[bgcolor=red]   0 : 0   [/bgcolor]
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WinScreen" type="Node2D" parent="CanvasLayer" unique_id=1557025822]
+
+[node name="EffectLines" type="ColorRect" parent="CanvasLayer/WinScreen" unique_id=299910148]
+visible = false
+material = SubResource("ShaderMaterial_0odxb")
+offset_right = 1920.0
+offset_bottom = 1080.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerWinAnimation" type="Sprite2D" parent="CanvasLayer/WinScreen" unique_id=1016350857]
+position = Vector2(960, 540)
+scale = Vector2(16, 16)
+texture = ExtResource("4_vivmo")
+hframes = 13
+frame = 9
+
+[node name="EnemyWinAnimation" type="Sprite2D" parent="CanvasLayer/WinScreen" unique_id=1785375871]
+position = Vector2(960, 540)
+scale = Vector2(16, 16)
+texture = ExtResource("4_2cqfq")
+hframes = 13
+
+[node name="WinButton" type="Button" parent="CanvasLayer/WinScreen" unique_id=1806547689]
+offset_left = 600.0
+offset_top = 740.0
+offset_right = 1160.9958
+offset_bottom = 873.0
+pivot_offset = Vector2(280, 66)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_ycdy4")
+theme_override_font_sizes/font_size = 101
+theme_override_styles/normal = SubResource("StyleBoxFlat_d13ii")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1u8w0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0odxb")
+text = "WIN"
+metadata/_edit_use_anchors_ = true
+
+[node name="LosePanel" type="Panel" parent="CanvasLayer/WinScreen" unique_id=473474129]
+visible = false
+clip_contents = true
+offset_left = -400.0
+offset_top = 709.0
+offset_right = -71.998535
+offset_bottom = 944.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a6jrf")
+metadata/_edit_use_anchors_ = true
+
+[node name="LoseAnimation" type="AnimatedSprite2D" parent="CanvasLayer/WinScreen/LosePanel" unique_id=1251860052]
+position = Vector2(167, 175)
+scale = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_xuqvo")
+animation = &"PlayerLose"
+
+[node name="ExitButtonTimer" type="Timer" parent="CanvasLayer/WinScreen" unique_id=375959422]
+wait_time = 5.0
+one_shot = true
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=308607163]
+layer = 2
+
+[node name="InGameMenu" parent="PauseMenu" unique_id=845738553 instance=ExtResource("4_w48qg")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1146707240]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1464281822]
+environment = SubResource("Environment_qsp4k")
+
+[node name="PlayerReceiver" parent="." unique_id=68856927 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.727, 0, 0)
+
+[node name="player_spiker" parent="." unique_id=1673685265 instance=ExtResource("4_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 0)
+
+[node name="EnemySpiker" parent="." unique_id=922321233 node_paths=PackedStringArray("enemy_receiver", "rest_location") instance=ExtResource("1_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 0)
+enemy_receiver = NodePath("../EnemyReceiver")
+rest_location = NodePath("../SpikerRestLocation")
+
+[node name="SpikerRestLocation" type="Node3D" parent="." unique_id=1862167842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, 0)
+
+[node name="EnemyReceiver" parent="." unique_id=2028640440 node_paths=PackedStringArray("land_zone", "enemy_spiker") instance=ExtResource("6_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.727428, 0, 0)
+land_zone = NodePath("../LandZone")
+enemy_spiker = NodePath("../EnemySpiker")
+
+[node name="Camera" parent="." unique_id=661497358 node_paths=PackedStringArray("ball", "UI") instance=ExtResource("5_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 9.2)
+ball = NodePath("../Ball")
+UI = NodePath("../CanvasLayer")
+
+[node name="Ball" parent="." unique_id=277076019 node_paths=PackedStringArray("land_zone", "enemy_spiker", "player_spiker", "camera") instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+land_zone = NodePath("../LandZone")
+enemy_spiker = NodePath("../EnemySpiker")
+player_spiker = NodePath("../player_spiker")
+camera = NodePath("../Camera")
+
+[node name="LandZone" parent="." unique_id=1197307920 instance=ExtResource("3_lquwl")]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1996027971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3605161, 3.5265083, 0)
+
+[node name="World" type="Node3D" parent="." unique_id=1282994138]
+
+[node name="Wall" type="StaticBody3D" parent="World" unique_id=2009183253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 5.591, 0)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall" unique_id=897085637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005179405, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="Sprite3D9" type="Sprite3D" parent="World/Wall" unique_id=556695898]
+transform = Transform3D(-3.496911e-07, 0, 8, 0, 8, 0, -8, 0, -3.496911e-07, 0, -3.9099286, 0)
+texture_filter = 0
+texture = ExtResource("20_getpj")
+
+[node name="Sprite3D8" type="Sprite3D" parent="World/Wall" unique_id=109926655]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -6.04, -2.24)
+texture_filter = 0
+texture = ExtResource("15_yaehf")
+
+[node name="Sprite3D5" type="Sprite3D" parent="World/Wall" unique_id=573098752]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -6.04, 2.25)
+texture_filter = 0
+texture = ExtResource("15_yaehf")
+
+[node name="Wall2" type="StaticBody3D" parent="World" unique_id=840364450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 5.591, 0)
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Wall2" unique_id=690228438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005179405, 0)
+shape = SubResource("BoxShape3D_1bvp3")
+
+[node name="Sprite3D9" type="Sprite3D" parent="World/Wall2" unique_id=1356678288]
+transform = Transform3D(-3.496911e-07, 0, 8, 0, 8, 0, -8, 0, -3.496911e-07, 0, -3.9099286, 0)
+texture_filter = 0
+texture = ExtResource("20_getpj")
+
+[node name="Sprite3D8" type="Sprite3D" parent="World/Wall2" unique_id=1655003550]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -6.04, -2.24)
+texture_filter = 0
+texture = ExtResource("15_yaehf")
+
+[node name="Sprite3D5" type="Sprite3D" parent="World/Wall2" unique_id=1778021768]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, -6.04, 2.25)
+texture_filter = 0
+texture = ExtResource("15_yaehf")
+
+[node name="BallWall" type="StaticBody3D" parent="World" unique_id=2095615125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BallWall" unique_id=730848098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0177917, 0)
+shape = SubResource("BoxShape3D_1ube3")
+
+[node name="BallWall2" type="StaticBody3D" parent="World" unique_id=214513258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World/BallWall2" unique_id=702325911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.018, 0)
+shape = SubResource("BoxShape3D_1ube3")
+
+[node name="Net" parent="World" unique_id=528224807 instance=ExtResource("8_5vw27")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.9, 0)
+
+[node name="Floor" type="StaticBody3D" parent="World" unique_id=1405871897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.41575, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor" unique_id=1287895566]
+shape = SubResource("BoxShape3D_lquwl")
+
+[node name="Ocean" type="MeshInstance3D" parent="World" unique_id=1621065688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0380783, -19.827164)
+mesh = SubResource("PlaneMesh_kek77")
+
+[node name="Sand" type="MeshInstance3D" parent="World" unique_id=314732419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.393, 4.822113)
+mesh = SubResource("BoxMesh_1ube3")
+surface_material_override/0 = SubResource("StandardMaterial3D_dg77c")
+
+[node name="PalmTree" type="Sprite3D" parent="World" unique_id=1298918281]
+transform = Transform3D(7.878462, 0, 1.3891854, 0, 8, 0, -1.3891854, 0, 7.878462, -8, 1.64, -4)
+texture_filter = 0
+texture = ExtResource("21_ryguw")
+
+[node name="PalmTree2" type="Sprite3D" parent="World" unique_id=785431797]
+transform = Transform3D(7.8784614, 0, -1.3891853, 0, 8, 0, 1.3891853, 0, 7.8784614, 8, 1.64, -4)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("21_ryguw")
+
+[node name="PalmTree3" type="Sprite3D" parent="World" unique_id=393694844]
+transform = Transform3D(7.8251805, 0, 1.6632935, 0, 8, 0, -1.6632935, 0, 7.8251805, -10, 1.64, -2.5)
+texture_filter = 0
+texture = ExtResource("22_d13ii")
+
+[node name="PalmTree5" type="Sprite3D" parent="World" unique_id=1813867647]
+transform = Transform3D(7.7623653, 0, 1.9353751, 0, 8, 0, -1.9353751, 0, 7.7623653, -10, 1.64, -4.5)
+texture_filter = 0
+texture = ExtResource("23_1u8w0")
+
+[node name="PalmTree6" type="Sprite3D" parent="World" unique_id=1385537605]
+transform = Transform3D(7.7623653, 0, -1.9353751, 0, 8, 0, 1.9353751, 0, 7.7623653, 10, 1.64, -4.5)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("23_1u8w0")
+
+[node name="PalmTree4" type="Sprite3D" parent="World" unique_id=1210922821]
+transform = Transform3D(7.8251805, 0, -1.6632935, 0, 8, 0, 1.6632935, 0, 7.8251805, 10, 1.64, -2.5)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("22_d13ii")
+
+[node name="PalmTree7" type="Sprite3D" parent="World" unique_id=970755181]
+transform = Transform3D(6.128355, 0, 5.1423, 0, 8, 0, -5.1423, 0, 6.128355, -14.5, 1.64, -3)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("21_ryguw")
+
+[node name="PalmTree9" type="Sprite3D" parent="World" unique_id=784887737]
+transform = Transform3D(6.1283545, 0, -5.1423, 0, 8, 0, 5.1423, 0, 6.1283545, 14.5, 1.64, -3)
+texture_filter = 0
+texture = ExtResource("21_ryguw")
+
+[node name="Sandcastle" type="AnimatedSprite3D" parent="World" unique_id=1944145969]
+transform = Transform3D(7.878462, 0, 1.3891854, 0, 8, 0, -1.3891854, 0, 7.878462, -2.4176812, 0.45, -5.5)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_kq58d")
+animation = &"FlagWaveLeft"
+autoplay = "FlagWave"
+frame_progress = 0.03635301
+script = ExtResource("25_qsp4k")
+
+[node name="PersonLyingDown1" type="AnimatedSprite3D" parent="World" unique_id=1778825929]
+transform = Transform3D(7.9999995, 0, 0, 0, 8, 0, 0, 0, 7.9999995, 4.2345943, 1.654, -5.6028967)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_seu75")
+animation = &"Stretch"
+autoplay = "Stretch"
+
+[node name="PersonLyingDown2" type="AnimatedSprite3D" parent="World" unique_id=1468177189]
+transform = Transform3D(7.9999995, 0, 0, 0, 8, 0, 0, 0, 7.9999995, -6.8441563, 1.658, -6.062338)
+flip_h = true
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_htxhm")
+animation = &"Stretch"
+autoplay = "Stretch"
+
+[node name="TransitionAnim" type="AnimationPlayer" parent="." unique_id=80960512]
+libraries/ = SubResource("AnimationLibrary_ycdy4")
+
+[node name="WindEffects" type="GPUParticles3D" parent="." unique_id=902863520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+amount = 20
+lifetime = 2.0
+randomness = 0.89
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_ug678")
+draw_pass_1 = SubResource("RibbonTrailMesh_82xsv")
+
+[node name="LeafEffects" type="GPUParticles3D" parent="." unique_id=517493684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0)
+amount = 40
+randomness = 0.5
+visibility_aabb = AABB(-6, -6, -4, 12, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_82xsv")
+draw_pass_1 = SubResource("PlaneMesh_ryguw")
+
+[connection signal="pressed" from="CanvasLayer/WinScreen/WinButton" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="CanvasLayer/WinScreen/ExitButtonTimer" to="." method="_on_exit_button_timer_timeout"]
+[connection signal="animation_finished" from="TransitionAnim" to="." method="_on_transition_anim_animation_finished"]

@@ -1,0 +1,8 @@
+~ SpikeTutorial
+Now that the ball has gone up, you have to spike it!
+You are currently in control of the Spiker.
+Use the A and D keys to move around.
+Move yourself underneath the ball, then press the W key to jump.
+Then, once the spiker is right below the ball, press W again to spike.
+Don't worry if you get it wrong the first time; you'll be able to try again!
+do end_dialogue()

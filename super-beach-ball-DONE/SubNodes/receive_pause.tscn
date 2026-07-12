@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dtrpxoanpviu2"]
+
+[ext_resource type="Script" uid="uid://bruupytvfy4es" path="res://SubNodes/receive_pause.gd" id="1_cr8nr"]
+
+[node name="ReceivePause" type="Node3D" unique_id=1641524941]
+script = ExtResource("1_cr8nr")

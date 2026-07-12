@@ -1,0 +1,47 @@
+[gd_resource type="VisualShader" format=3 uid="uid://drri1fg246cyt"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_sts0n"]
+parameter_name = "ColorParameter"
+default_value_enabled = true
+default_value = Color(0.38831457, 0.8160326, 0.9999997, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sts0n"]
+resource_local_to_scene = true
+noise_type = 2
+frequency = 0.02
+fractal_type = 0
+cellular_distance_function = 1
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dg77c"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_sts0n")
+seamless = true
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_sts0n"]
+texture = SubResource("NoiseTexture2D_dg77c")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_sts0n"]
+output_port_for_preview = 0
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_sts0n"]
+default_input_values = [1, Vector2(0.001, -0.002), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_sts0n"]
+input_name = "time"
+
+[resource]
+nodes/fragment/0/position = Vector2(700, 300)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_sts0n")
+nodes/fragment/2/position = Vector2(-260, -400)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_sts0n")
+nodes/fragment/3/position = Vector2(-800, -240)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_sts0n")
+nodes/fragment/4/position = Vector2(160, -40)
+nodes/fragment/5/node = SubResource("VisualShaderNodeUVFunc_sts0n")
+nodes/fragment/5/position = Vector2(-1200, -180)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_sts0n")
+nodes/fragment/6/position = Vector2(-1560, 40)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 4, 0, 0, 0, 5, 0, 3, 0, 6, 0, 5, 2, 3, 0, 4, 1)

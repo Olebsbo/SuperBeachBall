@@ -1,0 +1,1209 @@
+[gd_scene format=3 uid="uid://dgkgvnwxly48v"]
+
+[ext_resource type="Script" uid="uid://bnb2yrxesao87" path="res://Menu/main_menu_gui.gd" id="1_rq3wu"]
+[ext_resource type="FontFile" uid="uid://dhdwg6lbpmktv" path="res://Font/LTSuperior-Black.ttf" id="2_ttshj"]
+[ext_resource type="Shader" uid="uid://b475h8wghdae4" path="res://shaders/diamondTransition.gdshader" id="3_ock54"]
+[ext_resource type="Script" uid="uid://cnnkfur133t4f" path="res://Menu/fullscreen_control.gd" id="4_6gt2w"]
+[ext_resource type="Script" uid="uid://ktf0t8el0v51" path="res://Menu/audio_control.gd" id="4_ock54"]
+[ext_resource type="Script" uid="uid://bl737blvkbg1w" path="res://Menu/particles_control.gd" id="5_6gt2w"]
+[ext_resource type="Script" uid="uid://tsdchgflr7rx" path="res://Menu/enemy_ai_difficulty.gd" id="6_ky8w7"]
+[ext_resource type="Texture2D" uid="uid://7tp3ex2we6k2" path="res://TutorialImages/Screenshot 2026-07-03 153106.png" id="6_x887y"]
+[ext_resource type="Texture2D" uid="uid://b1ab4r4gawmwe" path="res://TutorialImages/Screenshot 2026-07-03 153251.png" id="7_cif45"]
+[ext_resource type="Texture2D" uid="uid://c2cup20i4s8yc" path="res://TutorialImages/Screenshot 2026-07-03 153133.png" id="8_8owsx"]
+[ext_resource type="Texture2D" uid="uid://co8wdfnu51mnb" path="res://TutorialImages/Screenshot 2026-07-03 163005.png" id="9_ffjbx"]
+[ext_resource type="Texture2D" uid="uid://dfxknr8rx208m" path="res://TutorialImages/Screenshot 2026-07-03 153526.png" id="10_vr1fw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ube3"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(0.3, 0)
+border_width_left = 25
+border_width_right = 15
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="Animation" id="Animation_qe12f"]
+resource_name = "ButtonSlideIn"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainButtons/Play:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.08, 0.22),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-743, 317), Vector2(142, 317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainButtons/Options:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15, 0.28000006),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-763, 381), Vector2(122, 381)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainButtons/Credits:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.21000001, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-783, 446), Vector2(102, 446)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainButtons/Exit:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.26000002, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-803, 513), Vector2(82, 513)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainButtons/Manual:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.36, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-843, 635), Vector2(42, 635)]
+}
+
+[sub_resource type="Animation" id="Animation_6gt2w"]
+resource_name = "PlayOptionsSlideIn"
+length = 1.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainButtons/Options:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25, 0.38000003),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(122, 381), Vector2(-763, 381)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainButtons/Credits:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.31, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(102, 446), Vector2(-783, 446)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainButtons/Exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.36, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(82, 513), Vector2(-803, 513)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainButtons/Play:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(142, 317)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayOptions/PlayerVsAI:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.73, 0.88000005),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-783, 446), Vector2(102, 446)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayOptions/LocalPVP:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.86, 1.02),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-803, 513), Vector2(82, 513)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayOptions/Tutorial:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.59, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-763, 381), Vector2(122, 381)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MainButtons/Manual:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.44, 0.58),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(42, 635), Vector2(-843, 635)]
+}
+
+[sub_resource type="Animation" id="Animation_x887y"]
+resource_name = "PlayOptionsSlideOut"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainButtons/Options:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.55, 0.68000007),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-763, 381), Vector2(122, 381)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainButtons/Credits:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.61, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-783, 446), Vector2(102, 446)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainButtons/Exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.66, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-803, 513), Vector2(82, 513)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainButtons/Play:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(142, 317)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayOptions/PlayerVsAI:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.21, 0.36),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(102, 446), Vector2(-783, 446)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayOptions/LocalPVP:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.34, 0.48999998),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(82, 513), Vector2(-803, 513)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayOptions/Tutorial:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.08000001, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(122, 381), Vector2(-763, 381)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MainButtons/Manual:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.77000004, 0.91),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-843, 635), Vector2(42, 635)]
+}
+
+[sub_resource type="Animation" id="Animation_nlkkf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainButtons/Play:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-743, 317)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainButtons/Options:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-763, 381)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainButtons/Exit:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(82, 513)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainButtons/Credits:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(102, 446)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayOptions/Tutorial:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MainButtons/Manual:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-843, 635)]
+}
+
+[sub_resource type="Animation" id="Animation_jix8l"]
+resource_name = "TransitionIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_glbon"]
+resource_name = "TransitionOut"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlkkf"]
+_data = {
+&"ButtonSlideIn": SubResource("Animation_qe12f"),
+&"PlayOptionsSlideIn": SubResource("Animation_6gt2w"),
+&"PlayOptionsSlideOut": SubResource("Animation_x887y"),
+&"RESET": SubResource("Animation_nlkkf"),
+&"TransitionIn": SubResource("Animation_jix8l"),
+&"TransitionOut": SubResource("Animation_glbon")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rq3wu"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttshj"]
+bg_color = Color(0.808998, 0.8089984, 0.808998, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ock54"]
+bg_color = Color(0.9079417, 0.9079417, 0.90794164, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rq3wu"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ttshj"]
+color = Color(0, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="DPITexture" id="DPITexture_x887y"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gt2w"]
+bg_color = Color(0, 0, 0, 0.6392157)
+border_width_left = 16
+border_width_right = 14
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 180
+corner_radius_bottom_right = 180
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0.8947273, 0.6899909, 0.7476087, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 4
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 4
+corner_detail = 1
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0.646029, 0.64602906, 0.6460289, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0, 0.8784314, 0.8745098, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 4
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 4
+corner_detail = 1
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
+bg_color = Color(0.83461446, 0.8346143, 0.83461404, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0, 0.8784314, 0.8745098, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 4
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 4
+corner_detail = 1
+shadow_size = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("3_ock54")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = true
+shader_parameter/numberOfTiles = Vector2(16, 9)
+
+[node name="MainMenuGUI" type="Control" unique_id=974426033]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rq3wu")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1654735994]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -24.0
+offset_right = 763.0
+offset_bottom = 1113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ube3")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=800302014]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 198.0
+offset_top = -497.0
+offset_right = 842.0
+offset_bottom = -383.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_ttshj")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Super Beach Ball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=264972904]
+libraries/ = SubResource("AnimationLibrary_nlkkf")
+
+[node name="OptionsPanel" type="Panel" parent="." unique_id=1418924799]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.0
+offset_top = -246.25
+offset_right = 386.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="OptionsPanel" unique_id=1019424275]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 69.5
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="OptionsPanel" unique_id=1719630856]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -130.0
+offset_top = -63.25
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rq3wu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ttshj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ock54")
+text = "Back"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel" unique_id=207945675]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.25
+offset_top = -132.125
+offset_right = 235.25
+offset_bottom = 132.125
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel/VBoxContainer" unique_id=1868471466]
+layout_mode = 2
+
+[node name="MusicVolume" type="Label" parent="OptionsPanel/VBoxContainer/HBoxContainer" unique_id=2074752817]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ttshj")
+text = "Music Volume  "
+
+[node name="AudioControl" type="HSlider" parent="OptionsPanel/VBoxContainer/HBoxContainer" unique_id=378284404]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_rq3wu")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_ttshj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_ttshj")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("4_ock54")
+audio_bus_name = "Music"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="OptionsPanel/VBoxContainer" unique_id=151486174]
+layout_mode = 2
+
+[node name="SFXVolume" type="Label" parent="OptionsPanel/VBoxContainer/HBoxContainer2" unique_id=39778446]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ttshj")
+text = "SFX Volume      "
+
+[node name="AudioControl2" type="HSlider" parent="OptionsPanel/VBoxContainer/HBoxContainer2" unique_id=930988057]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_rq3wu")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_ttshj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_ttshj")
+max_value = 1.0
+step = 0.01
+value = 1.0
+script = ExtResource("4_ock54")
+audio_bus_name = "SFX"
+
+[node name="BlueTeamGenderSelector" type="CheckButton" parent="OptionsPanel/VBoxContainer" unique_id=187528351]
+layout_mode = 2
+theme_override_icons/unchecked = SubResource("DPITexture_x887y")
+text = "Blue Team Genders: M Spiker, F Receiver"
+
+[node name="RedTeamGenderSelector" type="CheckButton" parent="OptionsPanel/VBoxContainer" unique_id=1776406062]
+layout_mode = 2
+theme_override_icons/unchecked = SubResource("DPITexture_x887y")
+text = "Red Team Genders: M Spiker, F Receiver"
+
+[node name="FullscreenControl" type="CheckButton" parent="OptionsPanel/VBoxContainer" unique_id=2024145564]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ttshj")
+text = "Fullscreen"
+script = ExtResource("4_6gt2w")
+
+[node name="ParticlesControl" type="OptionButton" parent="OptionsPanel/VBoxContainer" unique_id=1089823730]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ttshj")
+selected = 0
+item_count = 2
+popup/item_0/text = "Particles: ON"
+popup/item_0/id = 0
+popup/item_1/text = "Particles: OFF"
+popup/item_1/id = 1
+script = ExtResource("5_6gt2w")
+
+[node name="EnemyAIDifficulty" type="OptionButton" parent="OptionsPanel/VBoxContainer" unique_id=838252089]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ttshj")
+selected = 0
+item_count = 3
+popup/item_0/text = "Computer Level: Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Computer Level: Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Computer Level: Hard"
+popup/item_2/id = 2
+script = ExtResource("6_ky8w7")
+
+[node name="CreditsPanel" type="Panel" parent="." unique_id=1494078613]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = -308.5
+offset_right = 506.0
+offset_bottom = 308.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gt2w")
+
+[node name="Title" type="Label" parent="CreditsPanel" unique_id=2001419711]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 89.5
+offset_right = 576.0
+offset_bottom = 129.5
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsPanel" unique_id=1409405154]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 149.5
+offset_right = 878.0
+offset_bottom = 498.5
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[b]Developers:[/b]
+
+Me (Olebsbo) as the lead game designer, programmer, artist, music composer, sound effect artist, and overall cool guy
+
+[b]Tools and Resources Used, not all required an attribution: [/b]
+
+Godot
+
+EDG 32 Color Palette
+
+Dialogue Manager by Nathan Hoad
+
+Decently Long Font by Pixel Echoes, Gravity-regular, LTSaeada-Black, LTSuperior-Black, Russo_One
+
+Gemini AI for the sky shader and syntax research
+
+Arturia Analog Labs V, Spitfire LABS, Kilohearts Essentials, Valhalla Supermassive, UAD Explore FREE Plugins
+LUNA Digital Audio Workstation
+
+
+ [url=https://godotshaders.com/shader/speed-lines-shader-for-godot-4/]Speed lines shader by Axilirate[/url]
+
+[url=https://www.youtube.com/watch?v=RubMXis-kC8]Diamond sweep transition animation tutorial by Makertech[/url]
+
+[url=https://www.youtube.com/watch?v=0rR89V5MZO4]3D camera shake tutorial by Octodemy[/url]
+
+[url=https://www.youtube.com/watch?v=zHYkcJyE52g]Main menu tutorial and Settings menu tutorial by Coco Code[/url]
+
+[url=https://www.youtube.com/watch?v=j_vSOSMgxxg]Easy 3D menu tutorial by Rayuse RP[/url]
+
+[url=https://www.youtube.com/watch?v=KMqYeRae6rM]BBCode tutorial by Cashew OldDew[/url]
+
+[url=https://www.youtube.com/watch?v=G5b4agx75Fc]Wind particle tutorial by Bissash[/url]
+
+[url=https://www.youtube.com/watch?v=dLWM8jxQx-4]Particle rain tutorial by Watt Interactive[/url]
+
+[url=https://www.youtube.com/watch?v=31WAnHju1e4]Falling leaves tutorial by Single-Minded Ryan[/url]
+
+[url=https://www.youtube.com/watch?v=yWIH7hHfWyU]Fire particle tutorial by Devworm[/url]
+
+[url=https://www.youtube.com/watch?v=AyOpeZIAu3Y]Footstep particle tutorial by Rungeon[/url]"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="CreditsPanel" unique_id=1234886787]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -89.5
+offset_right = 89.0
+offset_bottom = -49.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rq3wu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ttshj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ock54")
+text = "Back"
+
+[node name="TutorialManual" type="Panel" parent="." unique_id=1054931919]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -350.0
+offset_right = 650.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6gt2w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialManual" unique_id=2051668105]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -590.125
+offset_top = -631.0
+offset_right = 590.125
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 60
+
+[node name="Tutorial" type="Label" parent="TutorialManual/VBoxContainer" unique_id=1963646841]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 30
+text = "Tutorial Manual"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notice" type="Label" parent="TutorialManual/VBoxContainer" unique_id=374198253]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 18
+text = "IMPORTANT, 
+if you have not played the tutorial yet, press the \"play\" button in the main menu and then press \"tutorial\".
+This manual is designed to help if you needed more details than what the tutorial game mode provides."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TutorialManual/VBoxContainer" unique_id=1626694]
+custom_minimum_size = Vector2(900, 300)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TutorialManual/VBoxContainer/ScrollContainer" unique_id=257607223]
+custom_minimum_size = Vector2(900, 300)
+custom_maximum_size = Vector2(1200, -1)
+layout_mode = 2
+
+[node name="TutorialContents" type="Label" parent="TutorialManual/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1951936389]
+custom_minimum_size = Vector2(900, 300)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 20
+text = "Controls:
+A and D to move left and right
+Left and Right arrow keys to move left and right for red team in local PVP
+W key to jump, spike, receive
+Up arrow key to jump, spike, receive for red team in local PVP
+
+When receiving, the ball has to be close to the receiver, and
+then either the W or Up arrow key is pressed.
+
+Spiking also requires the ball to be close. To spike, press the W key
+to jump first, then press the W key again once the player is close to
+the ball.
+
+You can also control where your spike hits. 
+Hold the A or D keys (or left/right arrow keys for
+local PVP) to spike the ball closer to the net or 
+farther. Whether it goes closer or farther will 
+depend on which button you are holding.
+
+Rules:
+Each game initially goes up to 10 points. so in a situation where
+the score is 10 : 8, the game would go to the team with 10 points.
+However, the winning team has to have 2 more points than the opposing team. 
+If, for example, the team scores are 10 : 9, then they would play another round.
+If it becomes 10 : 10, they would play again, since neither team 
+has a 2 point advantage. This would continue until one team has
+2 points greater than the other team (for example, 12 : 10).
+
+After a long rally, the ball will get faster with each successive spike
+to make high level gameplay more challenging.
+
+If the ball is hit out (past the white barriers on each side of the court),
+then the point goes to the opposing team.
+
+You cannot receive using the spiker, or spike with the receiver.
+
+If a spiker fails to hit the ball on their jump, they cannot jump again.
+
+If the ball hits the net, it is considered to still be in play
+until it has hit the floor.
+
+Tips:
+When receiving, the ball always goes to the same place,
+right next to and above the net. This means that when spiking,
+you can move there and know for certain that you will
+be able to hit it if you time it right.
+
+When you spike, try to jump early, as during the jump, the ball
+will continue moving. By jumping early, you can intercept the ball 
+rather than finding that the ball has already moved by the time you
+get enough height.
+
+You can start holding down the movement key (A, D, left, or right)
+during the short pause that happens when the opponent spikes, 
+and you will immediately start moving as soon as the pause is over,
+allowing you to move to receive easier.
+
+Wow, you actually read all of that!
+Here's a happy face for you :)
+And a bit of knowledge: there is one easter egg in this game.
+See if you can find where it is!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialManual/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=525394995]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="TutorialManual/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer" unique_id=2078103394]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("6_x887y")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="TutorialManual/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer" unique_id=1550393045]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("7_cif45")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="TutorialManual/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer" unique_id=943231208]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("8_8owsx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="TutorialManual/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer" unique_id=836551826]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("9_ffjbx")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect5" type="TextureRect" parent="TutorialManual/VBoxContainer/ScrollContainer/HBoxContainer/VBoxContainer" unique_id=1794739338]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("10_vr1fw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Back" type="Button" parent="TutorialManual/VBoxContainer" unique_id=465494603]
+custom_minimum_size = Vector2(178, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rq3wu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ttshj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ock54")
+text = "Back"
+
+[node name="MainButtons" type="Control" parent="." unique_id=1406761900]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="MainButtons" unique_id=544335097]
+layout_mode = 0
+offset_left = -743.0
+offset_top = 317.0
+offset_right = -143.0
+offset_bottom = 371.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Play"
+
+[node name="Options" type="Button" parent="MainButtons" unique_id=887631926]
+layout_mode = 0
+offset_left = -763.0
+offset_top = 381.0
+offset_right = -163.0
+offset_bottom = 435.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Options
+"
+
+[node name="Credits" type="Button" parent="MainButtons" unique_id=64290295]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 446.0
+offset_right = 702.0
+offset_bottom = 500.0
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MainButtons" unique_id=2146859307]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 513.0
+offset_right = 682.0
+offset_bottom = 567.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Exit"
+
+[node name="Manual" type="Button" parent="MainButtons" unique_id=1678110847]
+layout_mode = 0
+offset_left = -843.0
+offset_top = 635.0
+offset_right = -243.0
+offset_bottom = 689.0
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Tutorial Manual"
+
+[node name="PlayOptions" type="Control" parent="." unique_id=2043709693]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tutorial" type="Button" parent="PlayOptions" unique_id=1163911181]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 54.0
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Tutorial"
+
+[node name="PlayerVsAI" type="Button" parent="PlayOptions" unique_id=596197390]
+layout_mode = 0
+offset_left = -783.0
+offset_top = 446.0
+offset_right = -183.0
+offset_bottom = 500.0
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Player vs AI"
+
+[node name="LocalPVP" type="Button" parent="PlayOptions" unique_id=436025536]
+layout_mode = 0
+offset_left = -803.0
+offset_top = 513.0
+offset_right = -203.0
+offset_bottom = 567.0
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ttshj")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Local PVP"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=50650562]
+autoplay = true
+bus = &"Music"
+
+[node name="Transition" type="ColorRect" parent="." unique_id=614899099]
+material = SubResource("ShaderMaterial_dg77c")
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1922.0
+offset_bottom = 1082.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Title" to="." method="_on_rich_text_label_mouse_entered"]
+[connection signal="mouse_exited" from="Title" to="." method="_on_rich_text_label_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="OptionsPanel/Back" to="." method="_on_back_options_pressed"]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/HBoxContainer/AudioControl" to="OptionsPanel/VBoxContainer/HBoxContainer/AudioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/HBoxContainer2/AudioControl2" to="OptionsPanel/VBoxContainer/HBoxContainer2/AudioControl2" method="_on_value_changed"]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/BlueTeamGenderSelector" to="." method="_on_blue_team_gender_selector_toggled"]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/RedTeamGenderSelector" to="." method="_on_red_team_gender_selector_toggled"]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/FullscreenControl" to="OptionsPanel/VBoxContainer/FullscreenControl" method="_on_toggled"]
+[connection signal="item_selected" from="OptionsPanel/VBoxContainer/ParticlesControl" to="OptionsPanel/VBoxContainer/ParticlesControl" method="_on_item_selected"]
+[connection signal="item_selected" from="OptionsPanel/VBoxContainer/EnemyAIDifficulty" to="OptionsPanel/VBoxContainer/EnemyAIDifficulty" method="_on_item_selected"]
+[connection signal="pressed" from="CreditsPanel/Back" to="." method="_on_back_credits_pressed"]
+[connection signal="pressed" from="TutorialManual/VBoxContainer/Back" to="." method="_on_tutorial_manual_back_pressed"]
+[connection signal="pressed" from="MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainButtons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MainButtons/Manual" to="." method="_on_manual_pressed"]
+[connection signal="pressed" from="PlayOptions/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="PlayOptions/PlayerVsAI" to="." method="_on_player_vs_ai_pressed"]
+[connection signal="pressed" from="PlayOptions/LocalPVP" to="." method="_on_local_pvp_pressed"]

@@ -1,0 +1,6 @@
+~ ReceiveTutorial
+The goal of this game is to keep the ball from touching the ground in your side of the court.
+Receiving (pressing "w" while near the ball on the ground) is the first play of the game.
+It is also used throughout the game; we will be coming back to the receive soon.
+Now that the ball is going up, control automatically switches to the spiker.
+do delay_to_spike_tut()

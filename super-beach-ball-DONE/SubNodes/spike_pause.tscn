@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dka4lb7k8xt4r"]
+
+[ext_resource type="Script" uid="uid://bpe1p7lvi1npt" path="res://SubNodes/spike_pause.gd" id="1_6exi2"]
+
+[node name="SpikePause" type="Node3D" unique_id=1641464032]
+script = ExtResource("1_6exi2")

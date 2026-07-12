@@ -1,0 +1,9 @@
+~ EnemySpikeTutorial
+Now the opponent has spiked the ball.
+The yellow, dome shaped marker on the sand shows where the ball will land.
+You are once again controlling the receiver.
+Use the A and D keys to move to where the ball will land.
+Remember the receive?
+Once you are at the right location, you can press the W key once the ball gets close to the receiver to receive the ball!
+Don't worry if you mess up the first time; you will get to try multiple times here.
+do end_dialogue()

@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://c8m44oj1omhx0"]
+
+[ext_resource type="Script" uid="uid://blt0xvtyhwo4m" path="res://objects/ball.gd" id="1_n16w4"]
+[ext_resource type="PackedScene" uid="uid://cton10vu7w8as" path="res://Effect/ball_landing_particles.tscn" id="2_75cf2"]
+[ext_resource type="AudioStream" uid="uid://blekjg8diumye" path="res://Sound+Music/Receive.wav" id="3_3d6a7"]
+[ext_resource type="Texture2D" uid="uid://bwnj8j0vlays1" path="res://Sprites/Ball4.png" id="3_tlu46"]
+[ext_resource type="AudioStream" uid="uid://c083ab3qbdd20" path="res://Sound+Music/ReceiveBallWind.wav" id="5_tlu46"]
+[ext_resource type="AudioStream" uid="uid://dd27fkwycwjbb" path="res://Sound+Music/BallWind.wav" id="6_75cf2"]
+[ext_resource type="AudioStream" uid="uid://6ho2od46nfku" path="res://Sound+Music/EndWhistle.wav" id="7_75cf2"]
+[ext_resource type="AudioStream" uid="uid://dw4ixhubufbyq" path="res://Sound+Music/StartWhistle.wav" id="8_b6iv5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x8fbi"]
+radius = 0.73800564
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n16w4"]
+radius = 0.8963957
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3d6a7"]
+radius = 0.98531747
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n16w4"]
+cull_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n16w4"]
+material = SubResource("StandardMaterial3D_n16w4")
+size = Vector2(0.4, 0.4)
+orientation = 2
+
+[sub_resource type="Gradient" id="Gradient_n16w4"]
+offsets = PackedFloat32Array(0, 0.41025642, 0.72307694, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.4117647, 0, 1, 1, 0.79607844, 0.36862746, 0.7294118, 1, 1, 1, 0.21568628)
+
+[node name="Ball" type="CharacterBody3D" unique_id=277076019]
+process_mode = 1
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_n16w4")
+landing_particles = ExtResource("2_75cf2")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1321720876]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("3_tlu46")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1415213724]
+shape = SubResource("SphereShape3D_x8fbi")
+
+[node name="ReceiveDetector" type="Area3D" parent="." unique_id=1927110141]
+visible = false
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiveDetector" unique_id=805202432]
+shape = SubResource("SphereShape3D_n16w4")
+
+[node name="EnemyReceiveDetector" type="Area3D" parent="." unique_id=2066945434]
+visible = false
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyReceiveDetector" unique_id=1242473210]
+shape = SubResource("SphereShape3D_n16w4")
+
+[node name="SpikeDetector" type="Area3D" parent="." unique_id=1613173635]
+visible = false
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpikeDetector" unique_id=1311698078]
+shape = SubResource("SphereShape3D_3d6a7")
+
+[node name="EnemySpikeDetector" type="Area3D" parent="." unique_id=1136786114]
+visible = false
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemySpikeDetector" unique_id=1548060373]
+shape = SubResource("SphereShape3D_3d6a7")
+
+[node name="LandingZone" type="RayCast3D" parent="." unique_id=1436730667]
+collision_mask = 4
+
+[node name="ReceivePauseTimer" type="Timer" parent="." unique_id=376129412]
+wait_time = 0.5
+one_shot = true
+
+[node name="SpikePauseTimer" type="Timer" parent="." unique_id=1252677569]
+wait_time = 0.3
+one_shot = true
+
+[node name="FlameParticles" type="CPUParticles3D" parent="." unique_id=400917223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054695845, 0)
+emitting = false
+amount = 1
+mesh = SubResource("PlaneMesh_n16w4")
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 30, 0)
+radial_accel_min = -50.0
+radial_accel_max = -40.0
+color_ramp = SubResource("Gradient_n16w4")
+
+[node name="ReceiveSound" type="AudioStreamPlayer" parent="." unique_id=1163133529]
+stream = ExtResource("3_3d6a7")
+volume_db = 20.0
+bus = &"SFX"
+
+[node name="SpikeSound" type="AudioStreamPlayer" parent="." unique_id=1973146523]
+stream = ExtResource("3_3d6a7")
+volume_db = 20.0
+pitch_scale = 1.4
+bus = &"SFX"
+
+[node name="ReceiveWindSound" type="AudioStreamPlayer" parent="." unique_id=182345508]
+stream = ExtResource("5_tlu46")
+volume_db = -6.0
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="SpikeWindSound" type="AudioStreamPlayer" parent="." unique_id=1162489307]
+stream = ExtResource("6_75cf2")
+volume_db = -20.0
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="BounceSound" type="AudioStreamPlayer" parent="." unique_id=1474468410]
+stream = ExtResource("3_3d6a7")
+volume_db = -4.0
+bus = &"SFX"
+
+[node name="EndWhistle" type="AudioStreamPlayer" parent="." unique_id=1180705305]
+stream = ExtResource("7_75cf2")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="StartWhistle" type="AudioStreamPlayer" parent="." unique_id=1094784804]
+stream = ExtResource("8_b6iv5")
+volume_db = 1.0
+max_polyphony = 2
+bus = &"SFX"
+
+[connection signal="timeout" from="ReceivePauseTimer" to="." method="_on_receive_pause_timer_timeout"]
+[connection signal="timeout" from="SpikePauseTimer" to="." method="_on_spike_pause_timer_timeout"]

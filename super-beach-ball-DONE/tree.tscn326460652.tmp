@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://i3p1ytlmpvkv"]
+
+[ext_resource type="PackedScene" uid="uid://cnhc3jbxnk5tp" path="res://Menu/main_menu.tscn" id="1_brfkd"]
+[ext_resource type="Script" uid="uid://d07fgl2wo46jn" path="res://tree.gd" id="1_nnvrw"]
+[ext_resource type="AudioStream" uid="uid://bt62p6osum4da" path="res://Sound+Music/Super Beach Ball Menu - MAIN_REDO.wav" id="3_gvmkm"]
+[ext_resource type="AudioStream" uid="uid://cp7rlwtbitx5b" path="res://Sound+Music/Super Beach Ball WIn - MAIN.wav" id="4_d2g23"]
+
+[node name="Tree" type="Node" unique_id=1936089693]
+process_mode = 3
+script = ExtResource("1_nnvrw")
+
+[node name="MainMenu" parent="." unique_id=1578261026 instance=ExtResource("1_brfkd")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=999205891]
+process_mode = 3
+stream = ExtResource("3_gvmkm")
+volume_db = 1.0
+bus = &"Music"
+
+[node name="WinMusicPlayer" type="AudioStreamPlayer" parent="." unique_id=710448986]
+stream = ExtResource("4_d2g23")
+bus = &"Music"

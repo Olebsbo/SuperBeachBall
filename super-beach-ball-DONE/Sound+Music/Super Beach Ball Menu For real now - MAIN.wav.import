@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://db2lqp87hfl2l"
+path="res://.godot/imported/Super Beach Ball Menu For real now - MAIN.wav-f4a8cf3db0eda0076028f73e2f796e1e.sample"
+
+[deps]
+
+source_file="res://Sound+Music/Super Beach Ball Menu For real now - MAIN.wav"
+dest_files=["res://.godot/imported/Super Beach Ball Menu For real now - MAIN.wav-f4a8cf3db0eda0076028f73e2f796e1e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
