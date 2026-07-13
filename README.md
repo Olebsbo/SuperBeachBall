@@ -11,7 +11,6 @@ where the x is some number to show the version. Enjoy!
 
 Controls:
 A and D to move the players, left and right arrow keys in local PVP to move the opposing team's players.
-W to receive when controlling the receiver, jump and spike when controlling the spiker. 
-You can hold A or D (or left/right arrow keys for local PVP) to hit the ball closer or further to the net. See in-game tutorial manual for more info.
+W to receive when controlling the receiver, jump and spike when controlling the spiker. You can hold A or D (or left/right arrow keys for local PVP) to hit the ball closer or further to the net. See in-game tutorial manual for more info.
 ESC (or 1, since the ESC key will lead to exiting full screen on the browser version) to open the in game menu while playing a match
 Mouse to press buttons, continue dialogue
