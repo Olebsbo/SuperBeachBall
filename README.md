@@ -15,7 +15,8 @@ W to receive when controlling the receiver, jump and spike when controlling the 
 ESC (or 1, since the ESC key will lead to exiting full screen on the browser version) to open the in game menu while playing a match
 Mouse to press buttons, continue dialogue
 
-Credits:
+**Credits:**
+
 **DEVELOPERS**
 
 Me (Olebsbo) as the lead game designer, programmer, artist, music composer, sound effect artist, and overall cool guy
