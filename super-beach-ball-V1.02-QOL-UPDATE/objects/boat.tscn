@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dywvlw7itha0o"]
+
+[ext_resource type="Texture2D" uid="uid://b587dqdkyjivr" path="res://Sprites/CruiseShip.png" id="1_0jw6q"]
+[ext_resource type="Script" uid="uid://v1hnr8unbhs2" path="res://objects/boat.gd" id="1_rhyj7"]
+[ext_resource type="Texture2D" uid="uid://dcs10efie77u5" path="res://Sprites/CargoBoat.png" id="2_kfuc4"]
+[ext_resource type="Texture2D" uid="uid://6biqnxd426ut" path="res://Sprites/FishingBoat.png" id="3_umb5a"]
+[ext_resource type="Texture2D" uid="uid://dlw1oleanclsa" path="res://Sprites/PirateShip.png" id="4_ywpsx"]
+[ext_resource type="Texture2D" uid="uid://d2p2re7awdpyc" path="res://Sprites/sailboat.png" id="5_ywpsx"]
+[ext_resource type="Texture2D" uid="uid://djth17g5uqaac" path="res://Sprites/SpeedBoat.png" id="6_c2moy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ube3"]
+
+[node name="Boat" type="CharacterBody3D" unique_id=818251534]
+script = ExtResource("1_rhyj7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1192159986]
+shape = SubResource("BoxShape3D_1ube3")
+
+[node name="Cruise" type="Sprite3D" parent="." unique_id=1760805205]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 6.2505846, 0)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("1_0jw6q")
+
+[node name="Cargo" type="Sprite3D" parent="." unique_id=450884446]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 6.3209567, 0)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("2_kfuc4")
+
+[node name="Fishing" type="Sprite3D" parent="." unique_id=1544850630]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 6.382474, 0)
+texture_filter = 0
+texture = ExtResource("3_umb5a")
+
+[node name="Pirate" type="Sprite3D" parent="." unique_id=964003342]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 9.868233, 0)
+texture_filter = 0
+texture = ExtResource("4_ywpsx")
+
+[node name="Sail" type="Sprite3D" parent="." unique_id=1120365624]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 6.322598, 0)
+texture_filter = 0
+texture = ExtResource("5_ywpsx")
+
+[node name="Speed" type="Sprite3D" parent="." unique_id=709850250]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 6.317215, 0)
+texture_filter = 0
+texture = ExtResource("6_c2moy")

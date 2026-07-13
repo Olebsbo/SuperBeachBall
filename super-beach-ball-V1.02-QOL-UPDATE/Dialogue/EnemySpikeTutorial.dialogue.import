@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ckw506ab53crr"
+path="res://.godot/imported/EnemySpikeTutorial.dialogue-f492d82da71afe158c09d21d800fb7c4.tres"
+
+[deps]
+
+source_file="res://Dialogue/EnemySpikeTutorial.dialogue"
+dest_files=["res://.godot/imported/EnemySpikeTutorial.dialogue-f492d82da71afe158c09d21d800fb7c4.tres"]
+
+[params]
+
+defaults=true

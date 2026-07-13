@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cnhc3jbxnk5tp"]
+
+[ext_resource type="PackedScene" uid="uid://dhpmu13j8cmjx" path="res://Menu/main_menu_BG.tscn" id="1_ci1se"]
+[ext_resource type="Script" uid="uid://dpba2fcycy4wf" path="res://Menu/main_menu.gd" id="1_dtkyu"]
+[ext_resource type="PackedScene" uid="uid://dgkgvnwxly48v" path="res://Menu/main_menu_gui.tscn" id="1_sla5p"]
+[ext_resource type="AudioStream" uid="uid://db2lqp87hfl2l" path="res://Sound+Music/Super Beach Ball Menu For real now - MAIN.wav" id="4_ohgnh"]
+
+[sub_resource type="Animation" id="Animation_dtkyu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.3533335, 0, 2.1106224)]
+}
+
+[sub_resource type="Animation" id="Animation_ci1se"]
+resource_name = "cameraAnim"
+length = 24.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/SubViewportContainer/SubViewport/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.1, 12.1, 18.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-4.3533335, 0, 2.1106224), Vector3(-4, 0, 2.111), Vector3(-4, 0, 1.8), Vector3(-4.3, 0, 1.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dtkyu"]
+_data = {
+&"RESET": SubResource("Animation_dtkyu"),
+&"cameraAnim": SubResource("Animation_ci1se")
+}
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1578261026 node_paths=PackedStringArray("GUI", "background")]
+script = ExtResource("1_dtkyu")
+GUI = NodePath("MainMenuGUI")
+background = NodePath("Background/MainMenuBG")
+
+[node name="Background" type="Node3D" parent="." unique_id=1871421168]
+
+[node name="MainMenuBG" parent="Background" unique_id=709539566 instance=ExtResource("1_ci1se")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background" unique_id=302275365]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer" unique_id=688161589]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Background/SubViewportContainer/SubViewport" unique_id=1692166107]
+transform = Transform3D(0.8279018, -0.11096344, -0.54978716, 0.02012509, 0.9854802, -0.16859376, 0.56051207, 0.12851454, 0.81811386, -4.3533335, 0, 2.1106224)
+
+[node name="MainMenuGUI" parent="." unique_id=974426033 instance=ExtResource("1_sla5p")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1241725435]
+libraries/ = SubResource("AnimationLibrary_dtkyu")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1897856324]
+stream = ExtResource("4_ohgnh")
+volume_db = -1.0
+autoplay = true
+bus = &"Music"

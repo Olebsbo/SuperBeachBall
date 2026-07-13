@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cv4m3af8hl03b"
+path="res://.godot/imported/ReceiveTutorial.dialogue-9857cd440957883d3d49a40adca3d66e.tres"
+
+[deps]
+
+source_file="res://Dialogue/ReceiveTutorial.dialogue"
+dest_files=["res://.godot/imported/ReceiveTutorial.dialogue-9857cd440957883d3d49a40adca3d66e.tres"]
+
+[params]
+
+defaults=true

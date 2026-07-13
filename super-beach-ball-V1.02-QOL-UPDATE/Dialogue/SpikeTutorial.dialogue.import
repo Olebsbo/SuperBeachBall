@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bo085l56lgekv"
+path="res://.godot/imported/SpikeTutorial.dialogue-3623b91bbd6231d498d9bbdaa3d25708.tres"
+
+[deps]
+
+source_file="res://Dialogue/SpikeTutorial.dialogue"
+dest_files=["res://.godot/imported/SpikeTutorial.dialogue-3623b91bbd6231d498d9bbdaa3d25708.tres"]
+
+[params]
+
+defaults=true
