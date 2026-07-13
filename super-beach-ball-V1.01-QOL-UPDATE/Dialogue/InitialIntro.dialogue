@@ -1,0 +1,5 @@
+~ InitialIntro
+Welcome to Super Beach Ball!
+Super Beach Ball is a variant on the game of beach volleyball.
+Here, let's start! Complete this dialogue, then press the W key.
+do end_dialogue()

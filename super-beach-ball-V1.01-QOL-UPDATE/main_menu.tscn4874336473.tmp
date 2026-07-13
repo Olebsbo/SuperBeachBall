@@ -1,0 +1,355 @@
+[gd_scene format=3 uid="uid://dgkgvnwxly48v"]
+
+[ext_resource type="Texture2D" uid="uid://b4ce73d0np7w" path="res://Sprites/Screenshot 2026-06-24 203005.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://bnb2yrxesao87" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="FontFile" uid="uid://dhdwg6lbpmktv" path="res://Font/LTSuperior-Black.ttf" id="4_glbon"]
+[ext_resource type="Shader" uid="uid://b475h8wghdae4" path="res://shaders/diamondTransition.gdshader" id="4_nlkkf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_06t4h"]
+texture = ExtResource("1_7vrkn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ube3"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(0.3, 0)
+border_width_left = 25
+border_width_right = 15
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0.8947273, 0.6899909, 0.7476087, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 4
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 4
+corner_detail = 1
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0.646029, 0.64602906, 0.6460289, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0, 0.8784314, 0.8745098, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 4
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 4
+corner_detail = 1
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
+bg_color = Color(0.83461446, 0.8346143, 0.83461404, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 10
+border_width_bottom = 5
+border_color = Color(0, 0.8784314, 0.8745098, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 4
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 4
+corner_detail = 1
+shadow_size = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("4_nlkkf")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = true
+shader_parameter/numberOfTiles = Vector2(16, 9)
+
+[sub_resource type="Animation" id="Animation_qe12f"]
+resource_name = "ButtonSlideIn"
+length = 0.45
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Play:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.33),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-743, 317), Vector2(142, 317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Options:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25, 0.38000003),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-763, 381), Vector2(122, 381)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Exit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.43),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-783, 446), Vector2(102, 446)]
+}
+
+[sub_resource type="Animation" id="Animation_nlkkf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Play:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-743, 317)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Options:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-763, 381)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Exit:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-783, 446)]
+}
+
+[sub_resource type="Animation" id="Animation_jix8l"]
+resource_name = "TransitionIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_glbon"]
+resource_name = "TransitionOut"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlkkf"]
+_data = {
+&"ButtonSlideIn": SubResource("Animation_qe12f"),
+&"RESET": SubResource("Animation_nlkkf"),
+&"TransitionIn": SubResource("Animation_jix8l"),
+&"TransitionOut": SubResource("Animation_glbon")
+}
+
+[node name="MainMenu" type="Control" unique_id=974426033]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="Panel" type="Panel" parent="." unique_id=1704020835]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_06t4h")
+
+[node name="Panel2" type="Panel" parent="." unique_id=1654735994]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -24.0
+offset_right = 763.0
+offset_bottom = 1113.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ube3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=800302014]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -545.0
+offset_right = 976.0
+offset_bottom = -354.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_glbon")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Super Beach Ball"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="." unique_id=544335097]
+layout_mode = 0
+offset_left = -743.0
+offset_top = 317.0
+offset_right = -143.0
+offset_bottom = 371.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_glbon")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Play"
+
+[node name="Options" type="Button" parent="." unique_id=887631926]
+layout_mode = 0
+offset_left = -763.0
+offset_top = 381.0
+offset_right = -163.0
+offset_bottom = 435.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_glbon")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="." unique_id=2146859307]
+layout_mode = 0
+offset_left = -783.0
+offset_top = 446.0
+offset_right = -183.0
+offset_bottom = 500.0
+size_flags_vertical = 3
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_glbon")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_glbon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "Exit"
+
+[node name="Transition" type="ColorRect" parent="." unique_id=614899099]
+material = SubResource("ShaderMaterial_dg77c")
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1922.0
+offset_bottom = 1082.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=264972904]
+libraries/ = SubResource("AnimationLibrary_nlkkf")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

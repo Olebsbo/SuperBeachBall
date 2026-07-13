@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bt62p6osum4da"
+path="res://.godot/imported/Super Beach Ball Menu - MAIN_REDO.wav-9da69b76ca3933f0cd93b201b46b0b05.sample"
+
+[deps]
+
+source_file="res://Sound+Music/Super Beach Ball Menu - MAIN_REDO.wav"
+dest_files=["res://.godot/imported/Super Beach Ball Menu - MAIN_REDO.wav-9da69b76ca3933f0cd93b201b46b0b05.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

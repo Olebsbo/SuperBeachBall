@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d3nxoiql3yavg"]
+
+[ext_resource type="Script" uid="uid://f5amjjldh0k3" path="res://player/enemy_spiker.gd" id="1_xqp2o"]
+[ext_resource type="Texture2D" uid="uid://c0nwlt0lqp53u" path="res://icon.svg" id="2_i6kid"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_848g8"]
+radius = 0.74254966
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5yr6n"]
+radius = 0.96507514
+
+[node name="EnemySpiker" type="CharacterBody3D" unique_id=922321233]
+collision_mask = 4
+script = ExtResource("1_xqp2o")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=600498913]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_i6kid")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=47335825]
+shape = SubResource("SphereShape3D_848g8")
+
+[node name="SpikeArea" type="Area3D" parent="." unique_id=2001888452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58301365, 0.34284496, 0)
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpikeArea" unique_id=628287247]
+shape = SubResource("SphereShape3D_5yr6n")

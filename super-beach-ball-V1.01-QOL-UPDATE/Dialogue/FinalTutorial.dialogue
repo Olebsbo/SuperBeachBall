@@ -1,0 +1,14 @@
+~ FinalTutorial
+Well done! You've now completed the tutorial.
+If you ever find yourself confused, try visiting the manual in the main menu.
+This tutorial includes the basics, but the manual contains tips and rules not detailed in this tutorial.
+Now, a couple more things to note.
+The Computer will start off on "Easy" mode.
+There are also "Medium" and "Hard" modes to make it harder.
+The local PVP mode is also an option, allowing you to play with friends.
+In local PVP, the opposing team is controlled by the arrow keys.
+Spiking can be difficult, especially for beginners.
+The receive will always launch the ball near the net, so you can move there and time your jump to intercept the ball as it is coming down.
+For now, you can continue playing in the tutorial game, or you can press the ESC key to leave the match.
+Good Luck!
+do end_dialogue()

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cton10vu7w8as"]
+
+[ext_resource type="Texture2D" uid="uid://doj4btauh8668" path="res://Sprites/SandEffect.png" id="1_5jfsi"]
+[ext_resource type="Script" uid="uid://b0em2bdfvlrts" path="res://Effect/ball_landing_particles.gd" id="2_wto7r"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b50pt"]
+emission_shape_scale = Vector3(1, 1, 0.1)
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 7.0
+initial_velocity_max = 12.0
+angular_velocity_min = 0.9999839
+angular_velocity_max = 19.999983
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0o7b"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_5jfsi")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s0o7b"]
+material = SubResource("StandardMaterial3D_s0o7b")
+size = Vector2(0.3, 0.3)
+orientation = 2
+
+[node name="BallLandingParticles" type="GPUParticles3D" unique_id=805433027]
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_b50pt")
+draw_pass_1 = SubResource("PlaneMesh_s0o7b")
+script = ExtResource("2_wto7r")

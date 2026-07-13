@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://xuowrbxw8iqg"]
+
+[ext_resource type="Script" uid="uid://bdh8ccfy6jvci" path="res://player/opponent_receiver.gd" id="1_5nwi7"]
+[ext_resource type="PackedScene" uid="uid://ch0yrdjlqldv4" path="res://Effect/footstep_particles.tscn" id="2_astpq"]
+[ext_resource type="Texture2D" uid="uid://dufxbt25qmcsv" path="res://Sprites/PlayerFemaleEnemy.png" id="2_dj0tb"]
+[ext_resource type="Texture2D" uid="uid://b4cdhxklvylgk" path="res://Sprites/ControlMarker.png" id="3_dj0tb"]
+[ext_resource type="PackedScene" uid="uid://dqmq1dnn7b1n8" path="res://Effect/receive_kickback_particles.tscn" id="3_u2xnf"]
+[ext_resource type="AudioStream" uid="uid://br5wp0t277fys" path="res://Sound+Music/SandFootstep.wav" id="6_34yjx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5nwi7"]
+size = Vector3(0.55133057, 1.523468, 0.13427734)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dj0tb"]
+radius = 0.7512675
+
+[sub_resource type="Animation" id="Animation_316uc"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ug678"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:stepped")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kbnlb"]
+resource_name = "Ready"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_l5qc6"]
+resource_name = "ReceiveBack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_c02ih"]
+resource_name = "ReceiveFront"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_0cdk4"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:stepped")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FootstepSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.31),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_astpq"]
+_data = {
+&"Idle": SubResource("Animation_316uc"),
+&"RESET": SubResource("Animation_ug678"),
+&"Ready": SubResource("Animation_kbnlb"),
+&"ReceiveBack": SubResource("Animation_l5qc6"),
+&"ReceiveFront": SubResource("Animation_c02ih"),
+&"Run": SubResource("Animation_0cdk4")
+}
+
+[node name="OpponentReceiver" type="CharacterBody3D" unique_id=798023771]
+collision_mask = 132
+script = ExtResource("1_5nwi7")
+foot_step = ExtResource("2_astpq")
+sand_kickback = ExtResource("3_u2xnf")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=920953793]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+flip_h = true
+texture_filter = 0
+texture = ExtResource("2_dj0tb")
+hframes = 10
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1253910397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, -0.1, 0)
+shape = SubResource("BoxShape3D_5nwi7")
+
+[node name="ReceiveArea" type="Area3D" parent="." unique_id=1192903667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.459, 0.342, 0)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiveArea" unique_id=1034350022]
+shape = SubResource("SphereShape3D_dj0tb")
+
+[node name="ReceiveArea2" type="Area3D" parent="." unique_id=617112476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.342, 0)
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ReceiveArea2" unique_id=608590026]
+shape = SubResource("SphereShape3D_dj0tb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2064484566]
+libraries/ = SubResource("AnimationLibrary_astpq")
+
+[node name="ReceivingTimer" type="Timer" parent="." unique_id=785276839]
+wait_time = 0.2
+one_shot = true
+
+[node name="ControlIndicator" type="Sprite3D" parent="." unique_id=1543270508]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 1.3, 0)
+texture_filter = 0
+texture = ExtResource("3_dj0tb")
+
+[node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=108023163]
+stream = ExtResource("6_34yjx")
+volume_db = -2.0
+bus = &"SFX"
+
+[connection signal="timeout" from="ReceivingTimer" to="." method="_on_receiving_timer_timeout"]

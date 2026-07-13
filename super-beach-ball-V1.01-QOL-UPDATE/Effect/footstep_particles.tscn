@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ch0yrdjlqldv4"]
+
+[ext_resource type="Texture2D" uid="uid://doj4btauh8668" path="res://Sprites/SandEffect.png" id="1_5rbjc"]
+[ext_resource type="Script" uid="uid://dnin3bnip0uat" path="res://Effect/footstep_particles.gd" id="2_hk57e"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s0o7b"]
+particle_flag_rotate_y = true
+emission_shape_scale = Vector3(1, 1, 0.1)
+emission_shape = 1
+emission_sphere_radius = 0.3
+direction = Vector3(0, 1, 0)
+spread = 50.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.5
+angular_velocity_min = 0.9999839
+angular_velocity_max = 19.999983
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0o7b"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_5rbjc")
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s0o7b"]
+material = SubResource("StandardMaterial3D_s0o7b")
+size = Vector2(0.3, 0.3)
+orientation = 2
+
+[node name="FootstepParticles" type="GPUParticles3D" unique_id=1992726319]
+emitting = false
+amount = 4
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_s0o7b")
+draw_pass_1 = SubResource("PlaneMesh_s0o7b")
+script = ExtResource("2_hk57e")
